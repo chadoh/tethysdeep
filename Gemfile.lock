@@ -224,6 +224,8 @@ DEPENDENCIES
   font-awesome-middleman (~> 4.0.3)
   middleman (~> 3.2.0)
   middleman-aws
+  middleman-cloudfront
+  middleman-s3_sync
   susy (~> 1.0.9)
   wdm (~> 0.1.0)
 

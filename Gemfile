@@ -23,3 +23,5 @@ platforms :mswin, :mingw do
 end
 
 gem 'middleman-aws'
+gem 'middleman-s3_sync'
+gem 'middleman-cloudfront'
