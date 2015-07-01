@@ -132,3 +132,29 @@ end
 
 # Skip locale validation (and validation warnings)
 I18n.enforce_available_locales = false
+
+# Configuration variables specific to each project
+#------------------------------------------------------------------------
+AWS_BUCKET                      = 'tethysdeep.com'
+AWS_CLOUDFRONT_DISTRIBUTION_ID  = 'E1Y0RTYPPJ88RD'
+
+# Variables: Sent in on CLI by rake task via ENV
+#------------------------------------------------------------------------
+AWS_ACCESS_KEY                  = ENV['AWS_ACCESS_KEY']
+AWS_SECRET                      = ENV['AWS_SECRET']
+
+# https://github.com/fredjean/middleman-s3_sync
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                     = AWS_BUCKET # The name of the S3 bucket you are targeting. This is globally unique.
+  s3_sync.aws_access_key_id          = AWS_ACCESS_KEY
+  s3_sync.aws_secret_access_key      = AWS_SECRET
+  s3_sync.delete                     = false # We delete stray files by default.
+end
+
+# https://github.com/andrusha/middleman-cloudfront
+activate :cloudfront do |cf|
+  cf.access_key_id                    = AWS_ACCESS_KEY
+  cf.secret_access_key                = AWS_SECRET
+  cf.distribution_id                  = AWS_CLOUDFRONT_DISTRIBUTION_ID
+  # cf.filter = /\.html$/i
+end

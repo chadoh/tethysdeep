@@ -21,3 +21,5 @@ gem "font-awesome-middleman", "~> 4.0.3"
 platforms :mswin, :mingw do
    gem "wdm", "~> 0.1.0" # Windows Directory Monitor
 end
+
+gem 'middleman-aws'
