@@ -10,15 +10,66 @@
 
 @import "font-awesome"
 
-.container
-  width: 90%
-  margin: 0 auto
-  max-width: 800px
+$dark-color: rgb(34,34,34)
+$light-color: #DDE4EB
+$primary-color: #0B5B6A
 
 img
   max-width: 100%
   height: auto
 
+@import url(http://fonts.googleapis.com/css?family=Pompiere)
+
+.hero
+  background-color: #000
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: left top
+  overflow: hidden
+  @media(min-width: 720px)
+    height: 80vh
+    background-attachment: fixed
+  &.header
+    background-image: image-url('header-sinking-large.jpeg')
+
+  h1.brand
+    font-size: 7rem
+    line-height: 4.5rem
+    font-family: Pompiere, sans-serif
+    .tethys, .deep
+      word-spacing: -1rem
+      position: relative
+    .flipped
+      +rotate(180deg)
+      display: inline-block
+      position: relative
+      bottom: -2rem
+
+.container
+  margin: 0 auto
+  padding: 0 15px
+  width: 90%
+  max-width: 800px
+
+.bg-dark, .bg-light
+  font-size: 1.5rem
+  padding: 3rem 0
+
+.bg-dark
+  background-color: $dark-color
+  color: $light-color
+  a
+    color: $primary-color
+  ul.grid li
+    color: $dark-color
+
+.bg-light
+  background-color: $primary-color
+  color: $light-color
+  a
+    color: $light-color
+  ul.grid li
+    color: $primary-color
 
 // H5BP helper classes & mixins.
 // @include h5bp-helpers
